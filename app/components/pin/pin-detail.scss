@@ -5,15 +5,21 @@ pin-detail {
     
     ion-item ion-thumbnail {
         padding: 30px 0px 15px 0px;
-        background-size: 100% auto;
-        background-repeat: no-repeat;
         
         &.pin-icon {
-            background-image: url("/images/bkg.png");
+            background: url("../../images/bkg.png") no-repeat;
+            -webkit-background-size: 100% auto;
+            -moz-background-size: 100% auto;
+            -o-background-size: 100% auto;
+            background-size: 100% auto;
         }
         
         &.pin-icon-le {
-            background-image: url("/images/bkg-le.png");
+            background: url("../../images/bkg-le.png") no-repeat;
+            -webkit-background-size: 100% auto;
+            -moz-background-size: 100% auto;
+            -o-background-size: 100% auto;
+            background-size: 100% auto;
         }
     }
 }
