@@ -1,0 +1,11 @@
+<ion-item>
+    <ion-thumbnail item-left>
+        <img src="{{pin.thumb}}">
+    </ion-thumbnail>
+    <p *ngIf="pin.qty > 0">Have <ion-badge secondary>{{pin.qty}}</ion-badge></p>
+    <p *ngIf="pin.qty < 0">Want <ion-badge>{{-pin.qty}}</ion-badge></p>
+    <h2>{{pin.name}}</h2>
+    <p>{{pin.desc}}</p>
+    <button clear item-right large (click)="incrementPin(pin)"><ion-icon name="add"></ion-icon></button>
+    <button clear item-right large (click)="decrementPin(pin)"><ion-icon name="remove"></ion-icon></button>
+</ion-item>

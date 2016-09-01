@@ -1,0 +1,12 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Your Collection</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list class="pins">
+    <pin-detail *ngFor="let pin of pins" [pin]=pin></pin-detail>
+  </ion-list>
+</ion-content>
