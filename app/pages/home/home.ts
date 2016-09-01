@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Pin} from '../../components/pin/pin';
 import {PinDetail} from '../../components/pin/pin-detail';
 import * as _ from 'underscore';
+import * as storage from 'localforage';
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -61,6 +62,13 @@ export class HomePage {
   pins: Pin[];
   filters: string[] = [];
   constructor() {
+    this.PINS.forEach((pin) => {
+      storage.getItem(pin.id).then((value: number) => {
+        pin.qty = value;
+      }).catch((err) => {
+        pin.qty = 0;
+      })
+    })
     this.pins = this.PINS;
   }
   
