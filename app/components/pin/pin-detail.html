@@ -1,10 +1,10 @@
 <ion-item-sliding #slidingItem>
     <ion-item>
         <ion-thumbnail item-left>
-            <img src="{{pin.thumb}}">
+            <img src="images/{{pin.thumb}}">
         </ion-thumbnail>
         <h2>{{pin.name}}</h2>
-        <p>{{pin.desc}}</p>
+        <p>{{pin.sets.join(", ")}}</p>
         <p *ngIf="pin.qty > 0" float>Have <ion-badge secondary>{{pin.qty}}</ion-badge></p>
         <p *ngIf="pin.qty < 0">Want <ion-badge>{{-pin.qty}}</ion-badge></p>
     </ion-item>

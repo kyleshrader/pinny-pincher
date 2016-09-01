@@ -4,60 +4,21 @@ import {PinDetail} from '../../components/pin/pin-detail';
 import * as _ from 'underscore';
 import * as storage from 'localforage';
 
+declare var require: {
+    <T>(path: string): T;
+    (paths: string[], callback: (...modules: any[]) => void): void;
+    ensure: (paths: string[], callback: (require: <T>(path: string) => T) => void) => void;
+};
+
+var pinJson = require('../../pins.json');
+
 @Component({
   templateUrl: 'build/pages/collection/collection.html',
   directives: [PinDetail]
 })
 
 export class CollectionPage {
-  private PINS: Pin[] = [{
-    id: 'megaman',
-    name: 'WEST MegaMan',
-    desc: 'Booth 214',
-    sets: ['WEST','2016'],
-    thumb: 'https://pinnypals.com/imgs/pin_megaman.png',
-    qty: 1
-  },
-  {
-    id: 'megaman',
-    name: 'EAST MegaMan',
-    desc: 'Booth 214',
-    sets: ['EAST','2016'],
-    thumb: 'https://pinnypals.com/imgs/pin_megaman.png',
-    qty: 0
-  },
-  {
-    id: 'megaman',
-    name: 'W15 MegaMan',
-    desc: 'Booth 214',
-    sets: ['WEST','2015'],
-    thumb: 'https://pinnypals.com/imgs/pin_megaman.png',
-    qty: -1
-  },
-  {
-    id: 'megaman',
-    name: 'E15 MegaMan',
-    desc: 'Booth 214',
-    sets: ['EAST','2015'],
-    thumb: 'https://pinnypals.com/imgs/pin_megaman.png',
-    qty: 0
-  },
-  {
-    id: 'megaman',
-    name: 'MegaMan',
-    desc: 'Booth 214',
-    sets: ['WEST','2016'],
-    thumb: 'https://pinnypals.com/imgs/pin_megaman.png',
-    qty: 0
-  },
-  {
-    id: 'emily',
-    name: 'Emily',
-    desc: 'Booth 212',
-    sets: ['WEST','2015'],
-    thumb: 'https://pinnypals.com/imgs/pin_emily.png',
-    qty: 0
-  }];
+  private PINS: Pin[] = <Pin[]> pinJson;
 
   pins: Pin[];
   filters: string[] = [];
@@ -69,7 +30,7 @@ export class CollectionPage {
         pin.qty = 0;
       })
     })
-    this.pins = this.PINS;
+    this.filter(['2016', 'PRIME']);
   }
   
   toggleFilter(filter: string) {
@@ -99,6 +60,6 @@ export class CollectionPage {
       return filter.every(filter => {
         return (pin.sets.indexOf(filter) >= 0);
       });
-    });
+    }).reverse();
   }
 }
