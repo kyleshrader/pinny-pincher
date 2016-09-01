@@ -5,11 +5,11 @@ import * as _ from 'underscore';
 import * as storage from 'localforage';
 
 @Component({
-  templateUrl: 'build/pages/home/home.html',
+  templateUrl: 'build/pages/collection/collection.html',
   directives: [PinDetail]
 })
 
-export class HomePage {
+export class CollectionPage {
   private PINS: Pin[] = [{
     id: 'megaman',
     name: 'WEST MegaMan',
