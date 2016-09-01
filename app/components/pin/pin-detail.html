@@ -1,6 +1,6 @@
 <ion-item-sliding #slidingItem>
     <ion-item>
-        <ion-thumbnail item-left>
+        <ion-thumbnail item-left class="{{pin.sets.indexOf('LIMITED') >= 0 ? 'pin-icon-le':'pin-icon'}}">
             <img src="images/{{pin.thumb}}">
         </ion-thumbnail>
         <h2>{{pin.name}}</h2>

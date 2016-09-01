@@ -28,9 +28,9 @@ export class CollectionPage {
         pin.qty = value;
       }).catch((err) => {
         pin.qty = 0;
-      })
-    })
-    this.filter(['2016', 'PRIME']);
+      });
+    });
+    this.filter(['2016']);
   }
   
   toggleFilter(filter: string) {
